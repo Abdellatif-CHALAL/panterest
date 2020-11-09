@@ -31,12 +31,12 @@ class Pin
     private $description;
 
     /**
-     * @ORM\Column(type="datetime", options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime")
      */
     private $createAt;
 
     /**
-     * @ORM\Column(type="datetime", options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime")
      */
     private $updateAt;
 
@@ -95,7 +95,7 @@ class Pin
 
 
     /**
-     * @ORM\PrePersist
+     * @ORM\PrePersiste
      * @ORM\PreUpdate
      */
 
@@ -105,5 +105,7 @@ class Pin
             $this->setCreateAt(new \DateTimeImmutable());
         }
         $this->setUpdateAt(new \DateTimeImmutable());
+
+        return $this;
     }
 }
