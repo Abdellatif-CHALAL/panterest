@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\Timestampable;
 use App\Repository\PinRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pin
 {
-    use Timestampable;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -61,5 +59,43 @@ class Pin
         $this->description = $description;
 
         return $this;
+    }
+
+    public function getCreateAt(): ?\DateTimeInterface
+    {
+        return $this->createAt;
+    }
+
+    public function setCreateAt(\DateTimeInterface $createAt): self
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(\DateTimeInterface $updateAt): self
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+
+    public function updateTimestamps()
+    {
+        if ($this->getCreateAt() === null) {
+            $this->setCreateAt(new \DateTimeImmutable());
+        }
+        $this->setUpdateAt(new \DateTimeImmutable());
     }
 }

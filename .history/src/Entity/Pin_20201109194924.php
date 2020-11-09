@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\Timestampable;
 use App\Repository\PinRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pin
 {
-    use Timestampable;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
