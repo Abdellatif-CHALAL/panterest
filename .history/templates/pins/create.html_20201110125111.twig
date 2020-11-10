@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title "New Pin" %}
+
+{% block body %}
+        <h1>create Pin</h1>
+        <p>{{ form(form) }}</p>
+
+    <a href="{{ path('app_pins_home') }}">Back</a>
+{% endblock %}
