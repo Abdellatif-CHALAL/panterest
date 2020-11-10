@@ -67,12 +67,11 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/delete/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
+     * @Route("/pins/delete/{id<[0-9]+>}", name="app_pins_delete", methods={"GET"})
      */
     public function delete(Pin $pin, EntityManagerInterface $em)
     {
         $em->remove($pin);
-        $em->flush();
         return $this->redirectToRoute('app_pins_home');
     }
 }

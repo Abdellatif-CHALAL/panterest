@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Pin;
-use App\Form\PinType;
 use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +28,7 @@ class PinsController extends AbstractController
     public function create(Request $request, EntityManagerInterface $em): Response
     {
         $pin =  new Pin();
-        $form = $this->createForm(PinType::class, $pin);
+        $form = $this->createForm($pin);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,11 +50,11 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET","PUT"})
+     * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET","POST"})
      */
     public function edit(Pin $pin, Request $request, EntityManagerInterface $em): Response
     {
-        $form = $this->createForm(PinType::class, $pin, ['method' => 'PUT']);
+        $form = $this->createForm($pin);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
@@ -64,15 +63,5 @@ class PinsController extends AbstractController
         }
 
         return $this->render('pins/edit.html.twig', ["form" => $form->createView(), "pin" => $pin]);
-    }
-
-    /**
-     * @Route("/pins/delete/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
-     */
-    public function delete(Pin $pin, EntityManagerInterface $em)
-    {
-        $em->remove($pin);
-        $em->flush();
-        return $this->redirectToRoute('app_pins_home');
     }
 }

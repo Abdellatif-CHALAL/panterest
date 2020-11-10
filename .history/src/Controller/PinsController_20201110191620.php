@@ -72,7 +72,6 @@ class PinsController extends AbstractController
     public function delete(Pin $pin, EntityManagerInterface $em)
     {
         $em->remove($pin);
-        $em->flush();
         return $this->redirectToRoute('app_pins_home');
     }
 }

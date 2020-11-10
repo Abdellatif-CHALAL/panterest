@@ -55,7 +55,7 @@ class PinsController extends AbstractController
      */
     public function edit(Pin $pin, Request $request, EntityManagerInterface $em): Response
     {
-        $form = $this->createForm(PinType::class, $pin, ['method' => 'PUT']);
+        $form = $this->createForm(PinType::class, $pin, ["method" => PUT]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
@@ -64,15 +64,5 @@ class PinsController extends AbstractController
         }
 
         return $this->render('pins/edit.html.twig', ["form" => $form->createView(), "pin" => $pin]);
-    }
-
-    /**
-     * @Route("/pins/delete/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
-     */
-    public function delete(Pin $pin, EntityManagerInterface $em)
-    {
-        $em->remove($pin);
-        $em->flush();
-        return $this->redirectToRoute('app_pins_home');
     }
 }
