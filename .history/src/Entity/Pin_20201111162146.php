@@ -26,15 +26,13 @@ class Pin
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(min=3)
+     * Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank
-     * @Assert\Length(min=10)
+     * Assert\NotBlank
      */
     private $description;
 
