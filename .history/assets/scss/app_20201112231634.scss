@@ -16,3 +16,10 @@ body {
         @extend .img-thumbnail;
     }
 }
+
+.vich-image img {
+    @extend .mb-2;
+    @extend .rounded;
+    @extend .shadow;
+    @extend .img-thumbnail;
+}

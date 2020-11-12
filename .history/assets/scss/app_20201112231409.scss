@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import "~bootstrap";
+html,
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vich-image .form-check {
+    @extend .mt-3;
+}
+
+.vich-image img {
+    @extend .mb-2;
+    @extend .rounded;
+    @extend .shadown;
+    @extend .img-thumbnail;
+}
