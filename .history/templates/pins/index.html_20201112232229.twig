@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Pins!{% endblock %}
+
+{% block body %}
+{% if pins|length > 0 %}
+<a href="{{ path('app_pins_create') }}">Create Pin</a>
+<h1>{{ pluraliz(pins| length,"Pin") }}</h1>
+{% for pin in pins %}
+    <h2><a href="{{ path('app_pins_show',{id:pin.id}) }}">{{ pin.title }} </a></h2>
+    <p>{{ pin.description|u.truncate(10,'...',false) }}</p>
+    <p>Submitted {{ pin.createAt|ago }}</p>
+{% ifend %}
+{% endfor %}
+{% endblock %}
