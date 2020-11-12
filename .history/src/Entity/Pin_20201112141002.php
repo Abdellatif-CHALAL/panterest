@@ -44,7 +44,7 @@ class Pin
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="pin_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="uploads_pins", fileNameProperty="imageName")
      * 
      * @var File|null
      */
@@ -102,7 +102,8 @@ class Pin
         if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->setUpdateAt(new \DateTimeImmutable);
+            $this->updatedAt = new \DateTimeImmutable();
+            $this->setUpdateAt(new \DateTimeImmutable;
         }
     }
 

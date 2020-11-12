@@ -14,10 +14,14 @@ class PinType extends AbstractType
     {
         $builder
             ->add('imageFile', VichImageType::class, [
-                'label' => 'Upload JPG or PNG file',
+                'label' => 'Upload JPG or PNJ image'
                 'required' => false,
                 'allow_delete' => true,
-                'download_uri' => false,
+                'delete_label' => '...',
+                'download_label' => '...',
+                'download_uri' => true,
+                'image_uri' => true,
+                'asset_helper' => true,
             ])
             ->add('title')
             ->add('description');

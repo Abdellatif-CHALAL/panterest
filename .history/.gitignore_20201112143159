@@ -23,5 +23,7 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 ###> custom ###
-/public/uploads/
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
 ###< end custom ###
