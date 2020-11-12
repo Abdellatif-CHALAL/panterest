@@ -18,7 +18,7 @@ body {
 }
 
 .pin img {
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s;
     &:hover {
         transform: scale(1.075);
     }

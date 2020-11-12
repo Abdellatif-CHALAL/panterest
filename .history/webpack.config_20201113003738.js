@@ -70,7 +70,7 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/admin.js')
 
-    .copyFiles({
+    .copyFilescopyFiles({
         from: './assets/images',
         to: '[path][name].[hash:8].[ext]',
         context: './assets'
