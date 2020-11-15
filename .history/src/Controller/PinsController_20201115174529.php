@@ -30,6 +30,7 @@ class PinsController extends AbstractController
     {
         $pin =  new Pin();
         $form = $this->createForm(PinType::class, $pin);
+        dd($request->request);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($pin);
