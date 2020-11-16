@@ -8,7 +8,7 @@
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
             {% endfor %}
 
-            <h1 class="mt-5 mb-5 text-center text-muted">Create an account</h1>
+            <h1 class="mt-5 text-center text-muted">Register</h1>
 
             {{ form_start(registrationForm) }} 
                 <div class="row">
@@ -23,10 +23,8 @@
                 {{ form_row(registrationForm.plainPassword, 
                     { label: 'Password' }) }} 
                 {{ form_row(registrationForm.agreeTerms)}}
-                <button type="submit" class="btn btn-block btn-primary">Register</button> 
+                <button type="submit" class="btn">Register</button> 
             {{ form_end(registrationForm) }} 
-            <p class="mt-5 text-center text-muted">Already have an account?<a href="{{ path('app_login') }}">Login in
-                    account</a></p>
         </div>
     </div>
 {% endblock %}
