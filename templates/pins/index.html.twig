@@ -22,6 +22,9 @@
                 {% endfor %}
         </div>
     {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(pins) }}
+    </div>
 {% else %}
     <p class="h1 mt-5 text-center">No pins yet. <a href="{{ path('app_pins_create') }}">Be the first!</a></p>
 {% endif %}

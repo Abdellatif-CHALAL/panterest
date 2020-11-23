@@ -1,10 +1,6 @@
 {% extends 'layouts/base.html.twig' %} {% block title %}Register!{% endblock %} 
 
-{% block body %} 
-
-{% for flashError in app.flashes('verify_email_error') %}
-<div class="alert alert-danger" role="alert">{{ flashError }}</div>
-{% endfor %}
+{% block body %}
 <div class="row">
     <div class="col-md-6 mx-auto">
             <h1 class="mt-5 mb-5 text-center text-muted">Create an account</h1>
