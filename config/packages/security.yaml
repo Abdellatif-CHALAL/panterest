@@ -22,10 +22,16 @@ security:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
             logout:
+                csrf_token_generator: Symfony\Component\Security\Csrf\CsrfTokenManagerInterface
                 path: app_logout
+
                 # where to redirect after logout
                 target: app_pins_home
-            
+                 # security:
+                   # csrf:
+                    #security:
+                        #csrf:
+
             remember_me:
                 secret: '%kernel.secret%'
 
