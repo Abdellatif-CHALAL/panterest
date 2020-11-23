@@ -36,18 +36,20 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(message="Plaise enter your last name")
      */
     private $lastName;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank(message="Plaise enter your email")
+
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="Plaise enter your email")
      */
     private $roles = [];
 

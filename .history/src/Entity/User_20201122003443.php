@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
-    use Timestampable;
+    // use Timestampable;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

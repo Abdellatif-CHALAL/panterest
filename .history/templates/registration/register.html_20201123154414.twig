@@ -1,8 +1,4 @@
-{% extends 'layouts/base.html.twig' %} {% block title %}Register!{% endblock %} 
-
-{% block body %} 
-
-{% for flashError in app.flashes('verify_email_error') %}
+{% extends 'layouts/base.html.twig' %} {% block title %}Register!{% endblock %} {% block body %} {% for flashError in app.flashes('verify_email_error') %}
 <div class="alert alert-danger" role="alert">{{ flashError }}</div>
 {% endfor %}
 
@@ -33,9 +29,10 @@
             {{ form_end(registrationForm) }} 
             <p class="mt-5 text-center text-muted">Already have an account?<a href="{{ path('app_login') }}">Login in
                     account</a></p>
-            </div>
-        </div> 
-        <button type="submit" class="btn">Register</button> 
-        {{ form_end(registrationForm) }} 
-    {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+ 
+
+<button type="submit" class="btn">Register</button> {{ form_end(registrationForm) }} {% endblock %}
 
